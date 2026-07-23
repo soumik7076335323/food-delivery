@@ -4,15 +4,6 @@ A modern **Food Delivery Web Application** built using the **MERN Stack (MongoDB
 
 ---
 
-## 🚀 Live Demo
-
-### 👤 Customer Panel
-
-https://food-delivery-frontend-s2l9.onrender.com
-
-### 🛠️ Admin Panel
-
-https://food-delivery-admin-wrme.onrender.com
 
 ---
 
