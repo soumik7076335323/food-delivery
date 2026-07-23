@@ -1,4 +1,4 @@
-# 🍅 Tomato - MERN Food Delivery Web Application
+#  FoodyGo - MERN Food Delivery Web Application
 
 A modern **Food Delivery Web Application** built using the **MERN Stack (MongoDB, Express.js, React.js, Node.js)**. The project includes a complete **Customer Panel**, **Admin Panel**, secure authentication, online payments, and order management.
 
@@ -121,7 +121,7 @@ Food-Delivery-main
 Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/Food-Delivery-main.git
+git clone https://github.com/soumik7076335323/Food-Delivery-main.git
 ```
 
 Go to project folder
@@ -266,9 +266,9 @@ The project can be deployed on:
 
 **Soumik Adhikary**
 
-GitHub: https://github.com/YOUR_GITHUB_USERNAME
+GitHub: https://github.com/soumik7076335323
 
-LinkedIn: https://www.linkedin.com/in/YOUR_LINKEDIN/
+LinkedIn: https://www.linkedin.com/in/soumik-adhikary-5a4742192/
 
 ---
 
