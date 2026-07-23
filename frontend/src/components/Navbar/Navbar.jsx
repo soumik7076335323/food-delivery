@@ -1,0 +1,111 @@
+import { useContext, useState } from "react";
+import PropTypes from "prop-types";
+import "./Navbar.css";
+import { assets } from "../../assets/frontend_assets/assets";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { StoreContext } from "../../context/StoreContext";
+import { toast } from "react-toastify";
+
+const Navbar = ({ setShowLogin }) => {
+  const { getTotalCartAmount, token, setToken, search, setSearch } =
+    useContext(StoreContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const getActiveMenu = () => {
+    if (location.pathname === "/explore-menu") return "menu";
+    if (location.pathname === "/mobile-app") return "mobile-app";
+    if (location.pathname === "/contact-us") return "contact-us";
+    return "home";
+  };
+
+  const menu = getActiveMenu();
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    setToken("");
+    toast.success("Logout Successfully");
+    navigate("/");
+  };
+
+  return (
+    <div className="navbar">
+      <Link to="/">
+        <img src={assets.logo} alt="Tomato logo" className="logo" />
+      </Link>
+
+      <ul className="navbar-menu">
+        <Link to="/" className={menu === "home" ? "active" : ""}>
+          home
+        </Link>
+
+        <Link to="/explore-menu" className={menu === "menu" ? "active" : ""}>
+          menu
+        </Link>
+
+        <Link
+          to="/mobile-app"
+          className={menu === "mobile-app" ? "active" : ""}
+        >
+          mobile-app
+        </Link>
+
+        <Link
+          to="/contact-us"
+          className={menu === "contact-us" ? "active" : ""}
+        >
+          contact us
+        </Link>
+      </ul>
+
+      <div className="navbar-right">
+        <div className="navbar-search">
+          <img src={assets.search_icon} alt="Search" />
+
+          <input
+            type="text"
+            placeholder="Search food..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
+
+        <div className="navbar-search-icon">
+          <Link to="/cart">
+            <img src={assets.basket_icon} alt="Cart" />
+          </Link>
+
+          <div className={getTotalCartAmount() === 0 ? "" : "dot"}></div>
+        </div>
+
+        {!token ? (
+          <button onClick={() => setShowLogin(true)}>sign in</button>
+        ) : (
+          <div className="navbar-profile">
+            <img src={assets.profile_icon} alt="Profile" />
+
+            <ul className="nav-profile-dropdown">
+              <li onClick={() => navigate("/myorders")}>
+                <img src={assets.bag_icon} alt="" />
+                <p>Orders</p>
+              </li>
+
+              <hr />
+
+              <li onClick={logout}>
+                <img src={assets.logout_icon} alt="" />
+                <p>Logout</p>
+              </li>
+            </ul>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+Navbar.propTypes = {
+  setShowLogin: PropTypes.func.isRequired,
+};
+
+export default Navbar;
