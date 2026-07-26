@@ -1,96 +1,157 @@
-# Food Delivery - Full Stack MERN Application
+# 🍔 FoodyGo - Full Stack MERN Food Delivery Application
 
-A full-stack food delivery web application built with the MERN stack.
-The project includes a customer-facing React application, a separate
-admin panel, and a Node.js/Express REST API connected to MongoDB.
+FoodyGo is a **full-stack food delivery web application** built using the **MERN Stack (MongoDB, Express.js, React.js, and Node.js)**.
 
-## Features
+The application provides a complete food-ordering experience with a dedicated **Customer Application**, a separate **Admin Panel**, and a **RESTful Backend API**.
 
-### Customer Application
+It includes secure authentication, role-based authorization, food management, cart functionality, order management, image uploads, Stripe payment integration, and production deployment.
 
--   User registration and login
--   JWT-based authentication
--   Password hashing with bcrypt
--   Browse available food items
--   Category-based food browsing
--   Search functionality
--   Add items to cart
--   Increase or decrease cart quantity
--   Persistent cart for authenticated users
--   Checkout and order placement
--   Stripe Checkout payment integration
--   Payment verification
--   View personal order history
--   Responsive React user interface
--   Toast notifications for user feedback
+---
 
-### Admin Panel
+## 🌐 Live Demo
 
--   Admin login
--   Role-based authorization for protected admin operations
--   Add new food items
--   Upload food images
--   View food list
--   Remove food items
--   View all customer orders
--   Update order status
+### 🍽️ Customer Application
 
-## Tech Stack
+https://soumik-foodygo.vercel.app
 
-### Frontend
+### 🛠️ Admin Panel
 
--   React.js 18
--   Vite
--   React Router DOM
--   Context API
--   Axios
--   React Toastify
--   CSS
+https://food-delivery-soumik7.vercel.app
 
-### Admin Panel
+### ⚙️ Backend API
 
--   React.js 18
--   Vite
--   React Router DOM
--   Axios
--   React Toastify
--   CSS
+https://soumik-food.onrender.com
 
-### Backend
+### 📦 GitHub Repository
 
--   Node.js
--   Express.js
--   MongoDB
--   Mongoose
--   JSON Web Token (JWT)
--   bcrypt
--   Multer
--   Stripe
--   Validator
--   CORS
--   dotenv
+https://github.com/soumik7076335323/food-delivery
 
-## Project Structure
+---
 
-``` text
+## ✨ Features
+
+### 👤 Customer Application
+
+- 🔐 User Registration & Login
+- 🎫 JWT-based Authentication
+- 🔒 Secure Password Hashing using bcrypt
+- 🍕 Browse Available Food Items
+- 🗂️ Category-based Food Filtering
+- 🔍 Live Food Search
+- 🛒 Add Food Items to Cart
+- ➕ Increase Cart Quantity
+- ➖ Decrease Cart Quantity
+- 💾 Persistent Cart for Authenticated Users
+- 📦 Checkout & Order Placement
+- 💳 Stripe Checkout Payment Integration
+- ✅ Payment Verification
+- 📋 View Personal Order History
+- 🔔 Toast Notifications
+- 📱 Responsive User Interface
+
+---
+
+### 🛠️ Admin Panel
+
+- 🔐 Admin Login
+- 🛡️ Role-Based Authorization (RBAC)
+- ➕ Add New Food Items
+- 🖼️ Upload Food Images
+- 📋 View All Food Items
+- 🗑️ Remove Food Items
+- 📦 View Customer Orders
+- 🔄 Update Order Status
+- 🔔 Toast Notifications
+
+---
+
+## 🛠️ Tech Stack
+
+### 🎨 Frontend
+
+- React.js 18
+- JavaScript (ES6+)
+- Vite
+- React Router DOM
+- React Hooks
+- Context API
+- Axios
+- React Toastify
+- HTML5
+- CSS3
+
+### 🧑‍💼 Admin Panel
+
+- React.js 18
+- JavaScript
+- Vite
+- React Router DOM
+- Axios
+- React Toastify
+- CSS3
+
+### ⚙️ Backend
+
+- Node.js
+- Express.js
+- RESTful API
+- JSON Web Token (JWT)
+- bcrypt
+- Multer
+- CORS
+- dotenv
+- Validator
+
+### 🗄️ Database
+
+- MongoDB
+- MongoDB Atlas
+- Mongoose
+
+### 💳 Payment
+
+- Stripe Checkout
+
+### 🚀 Deployment
+
+- Vercel — Customer Frontend
+- Vercel — Admin Panel
+- Render — Backend API
+- MongoDB Atlas — Cloud Database
+- Stripe — Payment Processing
+- GitHub — Version Control & Source Code
+
+---
+
+## 📁 Project Structure
+
+```text
 Food-Delivery/
-├── frontend/                 # Customer React application
+│
+├── frontend/                    # Customer React Application
+│   ├── public/
 │   ├── src/
+│   │   ├── assets/
 │   │   ├── components/
 │   │   ├── context/
 │   │   ├── pages/
-│   │   └── assets/
-│   └── package.json
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   ├── package.json
+│   └── vite.config.js
 │
-├── admin/                    # Admin React application
+├── admin/                       # Admin React Application
+│   ├── public/
 │   ├── src/
+│   │   ├── assets/
 │   │   ├── components/
-│   │   ├── context/
 │   │   ├── pages/
-│   │   └── assets/
-│   └── package.json
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   ├── package.json
+│   └── vite.config.js
 │
-├── backend/                  # Node.js + Express REST API
+├── backend/                     # Node.js + Express REST API
 │   ├── config/
 │   ├── controllers/
 │   ├── middleware/
@@ -100,106 +161,221 @@ Food-Delivery/
 │   ├── server.js
 │   └── package.json
 │
+├── .gitignore
 └── README.md
 ```
 
-## Application Architecture
+---
 
-``` text
-Customer Frontend (React) ─┐
-                           ├──> Node.js / Express API ───> MongoDB
-Admin Panel (React) ───────┘             │
-                                         └──> Stripe Checkout
+## 🏗️ Application Architecture
+
+```text
+┌─────────────────────────────┐
+│   Customer Application      │
+│      React + Vite           │
+│        Vercel               │
+└──────────────┬──────────────┘
+               │
+               │ HTTP / REST API
+               ▼
+┌─────────────────────────────┐
+│                             │
+│    Node.js + Express.js     │
+│       Backend API           │
+│          Render             │
+│                             │
+└───────┬─────────────┬───────┘
+        │             │
+        │             │
+        ▼             ▼
+┌───────────────┐  ┌───────────────┐
+│ MongoDB Atlas │  │    Stripe     │
+│   Database    │  │   Checkout    │
+└───────────────┘  └───────────────┘
+        ▲
+        │
+        │ HTTP / REST API
+        │
+┌───────┴─────────────────────┐
+│        Admin Panel          │
+│       React + Vite          │
+│          Vercel             │
+└─────────────────────────────┘
 ```
 
-## Authentication and Authorization
+---
 
-The application uses JWT for authentication.
+## 🔐 Authentication & Authorization
 
-1.  A user registers or logs in.
-2.  The backend validates the credentials.
-3.  Passwords are hashed using bcrypt before being stored.
-4.  After successful authentication, the backend generates a JWT.
-5.  The client sends the token with protected API requests.
-6.  Authentication middleware verifies the token and identifies the
-    user.
-7.  Admin-sensitive operations additionally verify that the
-    authenticated user's role is `admin`.
+FoodyGo uses **JWT (JSON Web Token)** for authentication and **Role-Based Access Control (RBAC)** for protecting admin operations.
 
-The user model uses `user` as the default role.
+### Authentication Flow
 
-## Main API Endpoints
+1. 👤 User registers or logs in.
+2. 🔍 Backend validates the submitted credentials.
+3. 🔒 Passwords are hashed using bcrypt before being stored.
+4. 🎫 After successful authentication, the backend generates a JWT.
+5. 📡 The client sends the token with protected API requests.
+6. 🛡️ Authentication middleware validates the token.
+7. 👤 The authenticated user is identified from the verified token.
+8. 🔑 Admin-sensitive operations additionally verify the user's role.
+9. 🚫 Unauthorized users cannot perform protected admin operations.
 
-### User
+The default user role is:
 
-  Method   Endpoint               Description
-  -------- ---------------------- ---------------------
-  POST     `/api/user/register`   Register a new user
-  POST     `/api/user/login`      Login user
+```text
+user
+```
 
-### Food
+Administrative accounts use:
 
-  -----------------------------------------------------------------------
-  Method                  Endpoint                Description
-  ----------------------- ----------------------- -----------------------
-  GET                     `/api/food/list`        Get all food items
+```text
+admin
+```
 
-  POST                    `/api/food/add`         Add food item
-                                                  (authenticated/admin
-                                                  checked in controller)
+---
 
-  POST                    `/api/food/remove`      Remove food item
-                                                  (authenticated/admin
-                                                  checked in controller)
-  -----------------------------------------------------------------------
+# 🔌 REST API Endpoints
 
-### Cart
+## 👤 User API
 
-  Method   Endpoint             Description
-  -------- -------------------- ---------------------------------------
-  POST     `/api/cart/add`      Add item to authenticated user's cart
-  POST     `/api/cart/remove`   Remove item from cart
-  POST     `/api/cart/get`      Get authenticated user's cart
+| Method | Endpoint             | Description         |
+| ------ | -------------------- | ------------------- |
+| POST   | `/api/user/register` | Register a new user |
+| POST   | `/api/user/login`    | Login user          |
 
-### Orders
+---
 
-  -------------------------------------------------------------------------
-  Method                  Endpoint                  Description
-  ----------------------- ------------------------- -----------------------
-  POST                    `/api/order/place`        Create an order and
-                                                    Stripe Checkout session
+## 🍕 Food API
 
-  POST                    `/api/order/verify`       Verify payment result
+| Method | Endpoint           | Description         |
+| ------ | ------------------ | ------------------- |
+| GET    | `/api/food/list`   | Get all food items  |
+| POST   | `/api/food/add`    | Add a new food item |
+| POST   | `/api/food/remove` | Remove a food item  |
 
-  POST                    `/api/order/userorders`   Get logged-in user's
-                                                    orders
+Food creation supports image upload using **Multer**.
 
-  GET                     `/api/order/list`         Get all orders for
-                                                    admin
+---
 
-  POST                    `/api/order/status`       Update order status for
-                                                    admin
-  -------------------------------------------------------------------------
+## 🛒 Cart API
 
-## Local Installation
+| Method | Endpoint           | Description                                  |
+| ------ | ------------------ | -------------------------------------------- |
+| POST   | `/api/cart/add`    | Add an item to the authenticated user's cart |
+| POST   | `/api/cart/remove` | Remove/decrease an item from the cart        |
+| POST   | `/api/cart/get`    | Get the authenticated user's cart            |
 
-### 1. Clone the repository
+---
 
-``` bash
+## 📦 Order API
+
+| Method | Endpoint                | Description                                 |
+| ------ | ----------------------- | ------------------------------------------- |
+| POST   | `/api/order/place`      | Create an order and Stripe Checkout session |
+| POST   | `/api/order/verify`     | Verify payment result                       |
+| POST   | `/api/order/userorders` | Get logged-in user's orders                 |
+| GET    | `/api/order/list`       | Get all customer orders for admin           |
+| POST   | `/api/order/status`     | Update order status                         |
+
+---
+
+# 💳 Stripe Payment Flow
+
+The application integrates **Stripe Checkout** for online payment processing.
+
+```text
+Customer Cart
+      │
+      ▼
+Checkout
+      │
+      ▼
+Create Order
+      │
+      ▼
+Backend creates Stripe Checkout Session
+      │
+      ▼
+Stripe Payment Page
+      │
+      ▼
+Payment
+      │
+      ▼
+Payment Verification
+      │
+      ▼
+Order Confirmation
+```
+
+---
+
+# 🖼️ Image Upload
+
+Food images are uploaded through the Admin Panel.
+
+The backend uses:
+
+```text
+Multer
+```
+
+to handle image uploads.
+
+Uploaded food images are served through the backend's static image route:
+
+```text
+/images/<image-name>
+```
+
+Example:
+
+```text
+https://soumik-food.onrender.com/images/example-food.png
+```
+
+---
+
+# 💻 Local Installation
+
+## 1️⃣ Clone the Repository
+
+```bash
 git clone https://github.com/soumik7076335323/food-delivery.git
+```
+
+Move into the project:
+
+```bash
 cd food-delivery
 ```
 
-### 2. Backend Setup
+---
 
-``` bash
+# ⚙️ Backend Setup
+
+Move into the backend directory:
+
+```bash
 cd backend
+```
+
+Install dependencies:
+
+```bash
 npm install
 ```
 
-Create a `.env` file inside the `backend` directory:
+Create a `.env` file inside:
 
-``` env
+```text
+backend/.env
+```
+
+Add:
+
+```env
 MONGO_URI=your_mongodb_connection_string
 PORT=4000
 JWT_SECRET=your_secure_jwt_secret
@@ -209,155 +385,318 @@ STRIPE_SECRET_KEY=your_stripe_secret_key
 
 Start the backend:
 
-``` bash
+```bash
 node server.js
 ```
 
-The API will run locally on:
+The backend will run locally at:
 
-``` text
+```text
 http://localhost:4000
 ```
 
-### 3. Customer Frontend Setup
+---
 
-Open another terminal:
+# 🍽️ Customer Frontend Setup
 
-``` bash
+Open another terminal and move to the frontend:
+
+```bash
 cd frontend
+```
+
+Install dependencies:
+
+```bash
 npm install
+```
+
+Start the development server:
+
+```bash
 npm run dev
 ```
 
-### 4. Admin Panel Setup
+Vite will provide the local development URL.
+
+---
+
+# 🛠️ Admin Panel Setup
 
 Open another terminal:
 
-``` bash
+```bash
 cd admin
+```
+
+Install dependencies:
+
+```bash
 npm install
+```
+
+Start the Admin Panel:
+
+```bash
 npm run dev
 ```
 
-## Environment Variables
+---
 
-Never commit real credentials to GitHub.
+# 🔑 Environment Variables
 
-The backend requires:
+The backend requires the following environment variables:
 
-  Variable              Purpose
-  --------------------- -------------------------------
-  `MONGO_URI`           MongoDB connection string
-  `PORT`                Backend server port
-  `JWT_SECRET`          JWT signing secret
-  `SALT`                bcrypt salt rounds
-  `STRIPE_SECRET_KEY`   Stripe server-side secret key
+| Variable            | Purpose                         |
+| ------------------- | ------------------------------- |
+| `MONGO_URI`         | MongoDB Atlas connection string |
+| `PORT`              | Backend server port             |
+| `JWT_SECRET`        | JWT signing secret              |
+| `SALT`              | bcrypt salt rounds              |
+| `STRIPE_SECRET_KEY` | Stripe server-side secret key   |
 
-Add `.env` to `.gitignore`.
+⚠️ **Never commit real credentials or `.env` files to GitHub.**
 
-## Deployment
+Make sure `.env` is included in:
 
-A suitable deployment architecture for this project is:
-
-``` text
-Customer Frontend  -> Vercel
-Admin Panel        -> Vercel
-Backend API        -> Render
-Database           -> MongoDB Atlas
-Payments           -> Stripe
+```text
+.gitignore
 ```
 
-Backend deployment settings for Render:
+---
 
-``` text
+# 🚀 Production Deployment
+
+The application uses the following production architecture:
+
+```text
+Customer Frontend
+      │
+      └── Vercel
+             │
+             ▼
+       Render Backend
+             │
+       ┌─────┴─────┐
+       ▼           ▼
+ MongoDB Atlas   Stripe
+
+
+Admin Panel
+      │
+      └── Vercel
+             │
+             ▼
+       Render Backend
+```
+
+---
+
+## 🌍 Production Services
+
+| Application          | Platform      |
+| -------------------- | ------------- |
+| 🍽️ Customer Frontend | Vercel        |
+| 🛠️ Admin Panel       | Vercel        |
+| ⚙️ Backend API       | Render        |
+| 🗄️ Database          | MongoDB Atlas |
+| 💳 Payment Gateway   | Stripe        |
+| 📦 Source Code       | GitHub        |
+
+---
+
+# ⚙️ Render Backend Configuration
+
+Recommended Render settings:
+
+```text
 Root Directory: backend
 Build Command: npm install
 Start Command: node server.js
 ```
 
-Frontend and admin Vite applications can use:
+Production backend:
 
-``` text
+```text
+https://soumik-food.onrender.com
+```
+
+---
+
+# ▲ Vercel Configuration
+
+Both React applications are built using Vite.
+
+### Customer Frontend
+
+```text
+Root Directory: frontend
 Build Command: npm run build
 Output Directory: dist
 ```
 
-## Production Configuration
+### Admin Panel
 
-Before using the deployed application in production, replace local
-development URLs with deployed URLs.
-
-For example, the frontend API base URL should point to the deployed
-backend instead of:
-
-``` text
-http://localhost:4000
+```text
+Root Directory: admin
+Build Command: npm run build
+Output Directory: dist
 ```
 
-The Stripe success and cancel redirect URLs in the backend must also
-point to the deployed customer frontend instead of a localhost URL.
+---
 
-For a cleaner setup, these URLs should be moved to environment variables
-such as:
+# 🔒 Security
 
-``` env
-FRONTEND_URL=https://your-frontend-domain.vercel.app
+The application follows several important security practices:
+
+- 🔐 JWT-based authentication
+- 🔒 Password hashing using bcrypt
+- 🛡️ Server-side role-based authorization
+- 🔑 Environment variables for sensitive credentials
+- 🚫 `.env` excluded from Git
+- 🌐 CORS middleware
+- 🔍 Authentication middleware for protected APIs
+- 👑 Admin role verification for administrative operations
+- 💳 Stripe secret key kept on the backend
+- 🗄️ MongoDB credentials stored as environment variables
+
+### ⚠️ Important
+
+Never expose or commit:
+
+```text
+MongoDB Password
+JWT Secret
+Stripe Secret Key
+.env File
 ```
 
-and a Vite variable such as:
+If a secret is accidentally committed publicly, it should be rotated immediately.
 
-``` env
-VITE_API_URL=https://your-backend-domain.onrender.com
-```
+---
 
-## Security Notes
+# 📜 Available Scripts
 
--   Do not commit `.env` files.
--   Do not expose MongoDB credentials, JWT secrets, or Stripe secret
-    keys.
--   Rotate any secret that has accidentally been shared or committed.
--   Keep authorization checks on the server; hiding admin UI alone is
-    not authorization.
--   Use environment variables for production URLs and credentials.
+## Frontend / Admin
 
-## Scripts
+Run development server:
 
-Both React applications support:
-
-``` bash
+```bash
 npm run dev
+```
+
+Create production build:
+
+```bash
 npm run build
+```
+
+Run ESLint:
+
+```bash
 npm run lint
+```
+
+Preview production build:
+
+```bash
 npm run preview
 ```
 
-The current backend can be started with:
+---
 
-``` bash
+## Backend
+
+Start backend server:
+
+```bash
 node server.js
 ```
 
-## Future Improvements
+---
 
--   Move all frontend/backend URLs to environment variables
--   Add refresh-token authentication
--   Add centralized error-handling middleware
--   Add request validation middleware
--   Add pagination and advanced filtering
--   Store uploaded images in cloud storage such as Cloudinary
--   Add Stripe webhook-based payment confirmation
--   Add automated tests
--   Add order tracking and real-time status updates
--   Improve production logging and monitoring
+# 🧪 Production URLs
 
-## Author
+### 🍔 FoodyGo Customer Application
 
-**Soumik Adhikary**
+https://soumik-foodygo.vercel.app
 
-Full Stack MERN Developer
+### 🛠️ FoodyGo Admin Panel
 
-GitHub: https://github.com/soumik7076335323
+https://food-delivery-soumik7.vercel.app
 
-------------------------------------------------------------------------
+### ⚙️ FoodyGo REST API
 
-If you find this project useful, consider giving the repository a star.
+https://soumik-food.onrender.com
+
+### 📦 Source Code
+
+https://github.com/soumik7076335323/food-delivery
+
+---
+
+# 🚀 Future Improvements
+
+The project can be extended with:
+
+- ☁️ Cloudinary-based image storage
+- 🔄 Refresh Token Authentication
+- 🧪 Unit & Integration Testing
+- 🛡️ Centralized Error Handling
+- ✅ Request Validation Middleware
+- 📄 Pagination
+- 🔎 Advanced Food Filtering
+- ❤️ Wishlist Functionality
+- ⭐ Food Ratings & Reviews
+- 📍 Saved Delivery Addresses
+- 🎟️ Coupon & Discount System
+- 💳 Additional Payment Methods
+- 🪝 Stripe Webhook Payment Confirmation
+- 📦 Real-Time Order Tracking
+- 🔔 Real-Time Order Notifications
+- 📊 Advanced Admin Dashboard
+- 📈 Sales Analytics
+- 📱 Progressive Web App (PWA)
+- ☁️ Improved Production Logging & Monitoring
+
+---
+
+# 👨‍💻 Author
+
+## Soumik Adhikary
+
+**Full Stack MERN Developer**
+
+I am a Full Stack Developer focused on building modern web applications using **MongoDB, Express.js, React.js, Node.js, and JavaScript**.
+
+### 📬 Connect With Me
+
+📧 **Email:**  
+adhikarysoumik97@gmail.com
+
+📱 **Contact:**  
++91 8910525607
+
+💼 **LinkedIn:**  
+https://www.linkedin.com/in/soumik-adhikary-5a4742192/
+
+🐙 **GitHub:**  
+https://github.com/soumik7076335323
+
+---
+
+## ⭐ Support
+
+If you found this project useful or interesting, consider giving the repository a **⭐ Star**.
+
+Contributions, suggestions, and feedback are welcome.
+
+---
+
+### 🍔 FoodyGo
+
+**Order Your Favourite Food — Fast, Simple & Secure.**
+
+Built with ❤️ using the **MERN Stack**.
+
+© 2026 Soumik Adhikary
